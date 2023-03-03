@@ -10,6 +10,7 @@
 html,
 body {
     scroll-behavior: smooth;
+    overflow: overlay;
 }
 
 html {
@@ -94,12 +95,33 @@ i {
 }
 
 .navbar ul a {
+    position: relative;
     display: inline-block;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.75;
     color: var(--primary-color-semi);
     margin-right: 42px;
+}
+
+.navbar ul a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 12px;
+    height: 2px;
+    background: #171100;
+    border-radius: 1px;
+    display: none;
+}
+
+.navbar ul a:hover {
+    font-weight: 600;
+    color: var(--primary-color-bold);
+}
+
+.navbar ul a:hover::before {
+    display: block;
 }
 
 /*========= Hero =========*/
@@ -681,11 +703,22 @@ footer .desc {
 
 .footer-top {
     padding-bottom: 38px;
-    border-bottom: solid 1px #59554B;
+    border-bottom: solid 1px #59554b;
 }
 
 .copyright {
     margin-top: 28px;
     text-align: center;
-    color: #807D74;
+    color: #807d74;
+}
+
+/*========= Scrollbar =========*/
+::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--primary-color-semi);
 }
